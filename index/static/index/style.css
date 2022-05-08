@@ -17,11 +17,12 @@
 
 body {
   margin: 0;
+  scroll-behavior: smooth;
   font-family: "Exo Extra Bold", sans-serif;
   color: #0048ba;
-  background: linear-gradient(-45deg, #ff0550, yellow, #05ff8a, #00f700);
+  background: linear-gradient(-45deg, #ff0550, violet, yellow, #05ff8a, #00f700);
   background-size: 400% 400%;
-  animation: gradientbg 60s ease infinite;
+  animation: gradientbg 1000s ease infinite;
 }
 
 @keyframes gradientbg {
@@ -40,17 +41,12 @@ body {
   position: fit;
   top: 120%;
   animation: animatezoom 3s ease-out;
-  /* text-align: center; */
-  /* background-color: white; */
-}
-
-body {
-  scroll-behavior: smooth;
 }
 
 .form-error {
   font-family: "Google Sans";
-  color: red;
+  background-color: red;
+  color: white;
 }
 
 .form-icon {

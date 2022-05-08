@@ -31,6 +31,8 @@
     </div>
     <div class="create-form">
         <div class="container">
+            <p class="forms-label">Howdy, <strong>{{request.user}}</strong>! Welcome to PCPSForms!</p>
+            <hr/>
             <p class="forms-label">Create a new form</p>
             <div class="form-template-box">
                 <img src = "{% static 'Icon/blank-form.png' %}" alt = "Blank form" title = "Blank form" id="create-blank-form">

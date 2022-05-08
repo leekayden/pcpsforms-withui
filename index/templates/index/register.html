@@ -3,7 +3,7 @@
 <div class="container">
     <form action="{% url 'register' %}" method="post" class="box box-shadow margin-top-bottom">
         <div class="form-group">
-            <h1 class="box-title">Register user</h1>
+            <h1 class="box-title">Create new user</h1>
             <p class="form-error">{{message}}</p>
             {% csrf_token %}
         </div>
@@ -28,8 +28,7 @@
             <span class="input-onFocus"></span>
         </div>
         <div class="form-group">
-            <p class="form-label">Already have account? <a class="link" href = "{% url 'login' %}">Login</a></p>
-            <input type="submit" value="Register" class="btn btn-dark form-control">
+            <input type="submit" value="Create" class="btn btn-dark form-control">
         </div>
     </form>
 </div>

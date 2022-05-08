@@ -1,6 +1,6 @@
 {% extends 'index/layout.html' %}
 {% block title %}
-{{form.title}} ~ PCPSForms
+{{form.title}} | PCPSForms
 {% endblock %}
 {% load static %}
 {% block script %}
@@ -11,9 +11,9 @@
 <div class = "container-fluid">
     <div class="form-topnav">
         <a href = "/">
-            <img src = "{% static 'Icon/Icon.png' %}" alt = "Google Forms Icon(CLONE)" class="navbar-icon form-icon" title = "Forms" />
+            <img src = "{% static 'Icon/Icon.png' %}" alt="PCPSForms" class="navbar-icon form-icon" title = "Forms" />
         </a>
-        <input class="nav-text nav-form-title edit-on-click input-form-title" value  = "{{form.title}}" type="text">
+        <input class="nav-text nav-form-title edit-on-click input-form-title" value ="{{form.title}}" type="text">
         <div class="float-right">
             <img src="{% static 'Icon/theme.png' %}" alt="Theme icon" id="customize-theme-btn" title = "Customize theme" class="nav-form-menu-icon" />
             <a href="{% url 'view_form' form.code %}" target="_blank">
@@ -216,7 +216,7 @@
             <span class="modal-close-btn" id="close-send-form">&times;</span>
             <h1 class = "modal-title">Send form</h1>
             <div class="modal-division">
-                <h4 class="model-subtitle">Congrats! Your form has been uploaded to our servers at <a href="http://{{request.get_host}}" target="_blank" rel="noopener noreferrer">http://{{request.get_host}}</a></h4>
+                <h4 class="model-subtitle">Congrats! Your form has been uploaded to our servers at <a href="//{{request.get_host}}" target="_blank" rel="noopener noreferrer">http://{{request.get_host}}</a></h4>
                 <h4 class="modal-subtitle">Link:</h4>
                 <input type="url" class="form-control" value="http://{{request.get_host}}/form/{{form.code}}/viewform" copy-btn id="copy-url">
             </div>

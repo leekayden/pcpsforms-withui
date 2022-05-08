@@ -48,7 +48,7 @@ def register(request):
         #check if the password is the same as confirmation
         if password != confirmation:
             return render(request, "index/register.html", {
-                "message": "Passwords must match!"
+                "message": "Passwords must match."
             })
         #Checks if the username is already in use
         if User.objects.filter(email = email).count() == 1:
