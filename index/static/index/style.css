@@ -22,7 +22,7 @@ body {
   color: #0048ba;
   background: linear-gradient(-45deg, #ff0550, violet, yellow, #05ff8a, #00f700);
   background-size: 400% 400%;
-  animation: gradientbg 1000s ease infinite;
+  animation: gradientbg 60s ease infinite;
 }
 
 @keyframes gradientbg {
