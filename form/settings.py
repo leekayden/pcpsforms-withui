@@ -117,7 +117,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-'''SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_HSTS_SECONDS = 31536000
@@ -145,4 +145,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
-'''
