@@ -9,7 +9,6 @@ import json
 import random
 import string
 
-# Create your views here.
 def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('login'))
@@ -32,7 +31,7 @@ def login_view(request):
             return HttpResponseRedirect(reverse('index'))
         else:
             return render(request, "index/login.html", {
-                "message": "Invalid username and/or password"
+                "message": "Invalid username and/or password! Please try again."
             })
     return render(request, "index/login.html")
 
