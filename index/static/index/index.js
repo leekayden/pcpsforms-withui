@@ -202,4 +202,39 @@ const logoutButtonStates = {
   },
 };
 
-console.log("Test");
+// (function () {
+//   $(".menu-wrapper").on("click", function () {
+//     $(".hamburger-menu").toggleClass("animate");
+//     $(this).toggleClass("bg");
+//     $(".site-wrapper").toggleClass("blur");
+//   });
+// })();
+
+let tl = gsap.timeline({ease:'power1.in'})
+ let __SplitText = new SplitText("#text", {type:"words,chars"})
+ let clicked = false
+let chars = __SplitText.chars
+
+
+document.querySelector('#button').addEventListener('click',()=>{
+  if(clicked === false){
+    clicked = true
+    tl.to(chars, {duration: 0.5,opacity:0, scale:0, y:80, rotationX:180, transformOrigin:"0% 50% -50",   stagger: 0.1,repeat:0})
+  tl.to('#button',{width:'50px',duration:0.5})
+  tl.to('#w',{y:'0%',duration:0.5})
+  }
+  else if(clicked === true){
+    clicked = false
+      tl.to('#w',{y:'100%',duration:0.5})
+      tl.to('#button',{width:'135px',duration:0.5})
+tl.to(chars, {duration: 0.5, opacity:1, scale:1, y:0, rotationX:0, transformOrigin:"0% 50% -50", stagger: 0.1,repeat:0})
+  }
+})
+
+$('.loadingbar').delay(1500).animate({left: '0'}, 3000);
+$('.loadingBox').delay(500).animate({opacity: '1'}, 1000);
+$('.splashScreen').delay(4500).animate({top: '-100%'}, 1500);
+$('.loadingCircle').delay(4500).animate({opacity: '0'}, 500);
+$('body').delay(5000).queue(function(){
+	$('body').addClass("visibleSplash");
+});

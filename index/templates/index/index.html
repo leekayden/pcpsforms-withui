@@ -1,21 +1,29 @@
-{% extends 'index/layout.html' %}
-{% load static %}
-{% block script %}
-<script src = "{% static 'index/index.js' %}" defer></script>
+{% extends 'index/layout.html' %} {% load static %} {% block script %}
+<script src="{% static 'index/index.js' %}" defer></script>
 <script src="{% static 'lib/cookie.min.js' %}" defer></script>
-{% endblock %}
-{% load static %}
-{% block body %}
+{% endblock %} {% load static %} {% block body %}
 <div class="container-fluid">
-    <div class="topnav nav-effect">
-        <div class="nav-padding">
-            <span class="nav-ham" id="nav-ham">&#9776;</span>
-            <img src = "{% static 'Icon/Icon.png' %}" alt = "PCPSForms" class="navbar-icon form-icon" title="Forms">
-            <span class="nav-text" title = "Forms"><a href = "{% url 'index' %}" class="nav-link">PCPSForms</a></span>
-            <!-- <a href="{% url 'logout' %}">
-                <img src = "{% static 'Icon/Logout.png' %}" alt = "Logout Icon" class="navbar-icon float-right logout-icon" title="Logout">
-            </a> -->
-                <button class="logoutButton logoutButton--dark">
+  <div class="topnav nav-effect">
+    <div class="nav-padding">
+      <span class="nav-ham" id="nav-ham">&#9776;</span>
+      <img
+        src="{% static 'Icon/Icon.png' %}"
+        alt="PCPSForms"
+        class="navbar-icon form-icon"
+        title="Forms"
+      />
+      <span class="nav-text" title="Forms"
+        ><a href="{% url 'index' %}" class="nav-link">PCPSForms</a></span
+      >
+      <a href="{% url 'logout' %}">
+        <img
+          src="{% static 'Icon/Logout.png' %}"
+          alt="Logout Icon"
+          class="navbar-icon float-right logout-icon"
+          title="Logout"
+        />
+      </a>
+      <!-- <button class="logoutButton logoutButton--dark">
                   <svg class="doorway" viewBox="0 0 100 100">
                     <path d="M93.4 86.3H58.6c-1.9 0-3.4-1.5-3.4-3.4V17.1c0-1.9 1.5-3.4 3.4-3.4h34.8c1.9 0 3.4 1.5 3.4 3.4v65.8c0 1.9-1.5 3.4-3.4 3.4z" />
                     <path class="bang" d="M40.5 43.7L26.6 31.4l-2.5 6.7zM41.9 50.4l-19.5-4-1.4 6.3zM40 57.4l-17.7 3.9 3.9 5.7z" />
@@ -45,61 +53,108 @@
                     <circle cx="66" cy="50" r="3.7" />
                   </svg>
                   <span class="button-text">Log Out</span>
-                </button>
-        </div>
+                </button> -->
     </div>
-    <div class="sidebar" id = "sidebar">
-        <span class="close-sidebar" id="close-sidebar">&times;</span>
-        <div class="sidebar-content">
-            <h4 class="sidebar-title">
-                <a href = "{% url 'index' %}" class="sidebar-title-link">
-                    <span>PCPSForms</span>
-                </a>
-            </h4>
-            <p class="text-label">Built for <strong>Pei Chun Public School</strong></p>
-            <p class="text-label">&copy; Copyright <script>document.write(new Date().getFullYear())</script> <strong>Kayden Lee</strong></p>
-        </div>
+  </div>
+  <!-- <section class="menu-wrapper">
+    <div class="hamburger-menu"></div>
+    <div class="menu-item">
+      <a class="menu-item-link" href="#home">HOME</a>
+      <a class="menu-item-link" href="#blog">BLOG</a>
+      <a class="menu-item-link" href="#about">ABOUT</a>
+      <a class="menu-item-link" href="#portfolio">PORTFOLIO</a>
+      <a class="menu-item-link" href="#contact">CONTACT</a>
     </div>
-    <div class="create-form">
-        <div class="container">
-            <p class="forms-label">Howdy, <strong>{{request.user}}</strong>! Welcome to PCPSForms!</p>
-            <hr/>
-            <p class="forms-label">Create a new form</p>
-            <div class="form-template-box">
-                <img src = "{% static 'Icon/blank-form.png' %}" alt = "Blank form" title = "Blank form" id="create-blank-form">
-                <span class="form-template-label">Blank Form</span>
-            </div>
-            <div class="form-template-box big-screen">
-                <img src = "{% static 'Template/contact_information.png' %}" alt = "Contact Information" title = "Contact Information" id="create-contact-form">
-                <span class="form-template-label">Contact Information</span>
-            </div>
-            <div class="form-template-box big-screen">
-                <img src = "{% static 'Template/customer_feedback.png' %}" alt = "Customer Feedback" title = "Customer Feedback" id="create-customer-feedback">
-                <span class="form-template-label">Customer Feedback</span>
-            </div>
-            <div class="form-template-box big-screen">
-                <img src = "{% static 'Template/customer_feedback.png' %}" alt = "Event Registration" title = "Event Registration" id="create-event-registration">
-                <span class="form-template-label">Event Registration</span>
-            </div>
-        </div>
+  </section> -->
+  <div class="sidebar" id="sidebar">
+    <span class="close-sidebar" id="close-sidebar">&times;</span>
+    <div class="sidebar-content">
+      <h4 class="sidebar-title">
+        <a href="{% url 'index' %}" class="sidebar-title-link">
+          <span>PCPSForms</span>
+        </a>
+      </h4>
+      <p class="text-label">
+        Built for <strong>Pei Chun Public School</strong>
+      </p>
+      <p class="text-label">
+        &copy; Copyright
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        <strong>Kayden Lee</strong>
+      </p>
     </div>
+  </div>
+  <div class="create-form">
     <div class="container">
-        <div class="form-list">
-            <p class="forms-label">Recent Forms</p>
-            {% for i in forms %}
-            <a href = "{% url 'edit_form' i.code %}" class="form-list-link">
-                <div class="form-box">
-                    <div class="form-list-title"><h2 class="form-list-title-text">{{i.title}}</h2></div>
-                    <hr />
-                    {% if i.createdAt == i.updatedAt %}
-                    <p class="form-list-timestamp">Created on <strong>{{i.createdAt}}</strong></p>
-                    {% else %}
-                    <p class="form-list-timestamp">Last updated on <strong>{{i.updatedAt}}</strong></p>
-                    {% endif %}
-                </div>
-            </a>
-            {% endfor %}
-        </div>
+      <p class="forms-label">
+        Howdy, <strong>{{request.user}}</strong>! Welcome to PCPSForms!
+      </p>
+      <hr />
+      <p class="forms-label">Create a new form</p>
+      <div class="form-template-box">
+        <img
+          src="{% static 'Icon/blankform.png' %}"
+          alt="Blank form"
+          title="Blank form"
+          id="create-blank-form"
+        />
+        <br>
+        <span class="form-template-label">Blank Form</span>
+      </div>
+      <!-- <div class="form-template-box big-screen">
+        <img
+          src="{% static 'Template/contact_information.png' %}"
+          alt="Contact Information"
+          title="Contact Information"
+          id="create-contact-form"
+        />
+        <span class="form-template-label">Contact Information</span>
+      </div>
+      <div class="form-template-box big-screen">
+        <img
+          src="{% static 'Template/customer_feedback.png' %}"
+          alt="Customer Feedback"
+          title="Customer Feedback"
+          id="create-customer-feedback"
+        />
+        <span class="form-template-label">Customer Feedback</span>
+      </div>
+      <div class="form-template-box big-screen">
+        <img
+          src="{% static 'Template/customer_feedback.png' %}"
+          alt="Event Registration"
+          title="Event Registration"
+          id="create-event-registration"
+        />
+        <span class="form-template-label">Event Registration</span>
+      </div> -->
     </div>
+  </div>
+  <div class="container">
+    <div class="form-list">
+      <p class="forms-label">Recent Forms</p>
+      {% for i in forms %}
+      <a href="{% url 'edit_form' i.code %}" class="form-list-link">
+        <div class="form-box">
+          <div class="form-list-title">
+            <h2 class="form-list-title-text">{{i.title}}</h2>
+          </div>
+          <hr />
+          {% if i.createdAt == i.updatedAt %}
+          <p class="form-list-timestamp">
+            Created on <strong>{{i.createdAt}}</strong>
+          </p>
+          {% else %}
+          <p class="form-list-timestamp">
+            Last updated on <strong>{{i.updatedAt}}</strong>
+          </p>
+          {% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 {% endblock %}
