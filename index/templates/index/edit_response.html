@@ -3,7 +3,7 @@
 {% load get_response %}
 {% load to_int %}
 {% load is_response %}
-{% block title %}{{form.title}} | PCPSForms{% endblock %}
+{% block title %}Edit response for {{form.title}}{% endblock %}
 {% block script %}
 <script src="{% static 'index/viewform.js' %}" defer></script>
 {% endblock %}
@@ -34,7 +34,7 @@
             <h1 class="question-title txtClr" oncopy = "return false">{{question.question}} {% if question.required %}<span class="require-star">*</span>{% endif %}</h1>
             {% endif %}
             {% if question.question_type == "short" %}
-                <input type="text" name="{{question.id}}" class="short-answer" placeholder = "Your answer" {% if question.required %} required {% endif %}
+                <input type="text" name="{{question.id}}" class="short-answer" placeholder="Your answer" {% if question.required %} required {% endif %}
                 value="{{response|get_response:question.pk}}">
             {% elif question.question_type == "paragraph" %}
                 <textarea name="{{question.id}}" placeholder="Your answer" class="long-answer textarea-adjust" 

@@ -2,28 +2,227 @@
 @import url("https://fonts.googleapis.com/css?family=Product+Sans");
 @import url("https://fonts.googleapis.com/css?family=Google+Sans");
 
-p, a, span, h1, h2, h3, h4, h5, h6 {
-  color: transparent;
-  font-weight: bold;
-  background-clip: text;
-  background-position: -100px;
-  background-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 50%, rgba(0,0,0,1) 100%);
-  animation: shine 50s ease infinite;
-}
-
-@keyframes shine {
-  from {
-     background-position: -1000px;
-  }
-
-  to {
-     background-position: 1000px;
-  }
-}
-
 * {
+  font-family: Google Sans !important;
+  border-radius: 7.5px !important;
+  border-color: transparent !important;
+  /* box-shadow: 0 2px 30px -2px rgba(0, 0, 0, 0.2); */
+  animation: animatezoom 0.6s;
+}
+
+p {
   user-select: none;
-  font-weight: 300;
+  pointer-events: none;
+}
+
+/* basic styling */
+body {
+  background-color: #888888;
+}
+.background {
+  background-color: #808080;
+}
+/* end basic styling */
+.btn, .btn-primary, .btn-primary:active, .btn-primary:visited {
+  background-color: #888888;
+  border-color: #808080;
+}
+.btn-primary:hover {
+  background-color: #808080 !important;
+  border-color: #808080 !important;
+}
+/* footer */
+footer > a {
+  color: #6c757d;
+}
+footer > a:hover {
+  color: #fec503;
+  text-decoration: none;
+}
+::selection {
+  background: #fec503;
+  text-shadow: none;
+}
+footer {
+  padding: 2rem 0;
+  background-color: #212529;
+}
+
+.footer-column:not(:first-child) {
+  padding-top: 2rem;
+}
+@media (min-width: 768px) {
+  .footer-column:not(:first-child) {
+    padding-top: 0rem;
+  }
+}
+.footer-column {
+  text-align: center;
+}
+.footer-column .nav-item .nav-link {
+  padding: 0.1rem 0;
+}
+.footer-column .nav-item span.nav-link {
+  color: #6c757d;
+}
+.footer-column .nav-item span.footer-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  /* text-transform: uppercase; */
+}
+.footer-column .nav-item .fas {
+  margin-right: 0.5rem;
+}
+.footer-column ul {
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .footer-column ul {
+    text-align: left;
+  }
+}
+ul.social-buttons {
+  margin-bottom: 0;
+}
+ul.social-buttons li a:active,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:hover {
+  background-color: #0056b3;
+}
+ul.social-buttons li a {
+  font-size: 20px;
+  line-height: 40px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #fff;
+  border-radius: 100%;
+  outline: 0;
+  background-color: #1a1d20;
+}
+footer .quick-links {
+  font-size: 90%;
+  line-height: 40px;
+  margin-bottom: 0;
+  text-transform: none;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.copyright {
+  color: white;
+  background-color: #212529;
+}
+.fa-ellipsis-h {
+  color: white;
+  padding: 2rem 0;
+}
+
+.line-top {
+  background-color: rgb(158, 158, 158);
+  color: rgba(0, 0, 0, 1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 10px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+  width: calc(100% + 2px);
+}
+
+.spin {
+  animation: w3-spin 2s infinite linear;
+}
+@keyframes w3-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+.animate-fading {
+  animation: fading 10s infinite;
+}
+@keyframes fading {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.animate-opacity {
+  animation: opac 0.8s;
+}
+@keyframes opac {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.animate-top {
+  position: relative;
+  animation: animatetop 0.4s;
+}
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+.animate-left {
+  position: relative;
+  animation: animateleft 0.4s;
+}
+@keyframes animateleft {
+  from {
+    left: -300px;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+.animate-right {
+  position: relative;
+  animation: animateright 0.4s;
+}
+@keyframes animateright {
+  from {
+    right: -300px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+.animate-bottom {
+  position: relative;
+  animation: animatebottom 0.4s;
+}
+@keyframes animatebottom {
+  from {
+    bottom: -300px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes animatezoom {
@@ -34,32 +233,73 @@ p, a, span, h1, h2, h3, h4, h5, h6 {
     transform: scale(1);
   }
 }
-
-.shimmer {
-  /* text-align: center; */
-  color: rgba(255, 255, 255, 0.1) !important;
-  background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
-  background-size: 100%;
-  background-clip: text;
-  animation: shimmer;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  background-repeat: no-repeat;
-  /* background-position: 0 0; */
-  /* background-color: #222; */
+.animate-input {
+  transition: width 0.4s ease-in-out;
+}
+.animate-input:focus {
+  width: 100% !important;
 }
 
-@keyframes shimmer {
-  0% {
-      background-position: top left;
-  }
-  100% {
-      background-position: top right;
-  }
+.label-float {
+  position: relative;
+  padding-top: 13px;
+}
+
+.label-float input {
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  outline: none;
+  min-width: 250px;
+  padding: 15px 20px;
+  font-size: 16px;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -webkit-appearance: none;
+}
+
+.label-float input:focus {
+  border: 2px solid #808080;
+}
+
+.label-float input::placeholder {
+  color: transparent;
+}
+
+.label-float label {
+  pointer-events: none;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 15px;
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  background-color: white;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.label-float input:required:invalid + label {
+  color: red;
+}
+.label-float input:focus:required:invalid {
+  border: 2px solid red;
+}
+.label-float input:required:invalid + label:before {
+  content: "*";
+}
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label {
+  font-size: 13px;
+  top: 0;
+  color: #808080;
 }
 
 body,
 html {
+  margin: 0;
+  scroll-behavior: smooth;
+  font-family: "Exo Extra Bold", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
@@ -99,23 +339,6 @@ html {
     );
 }
 
-body {
-  margin: 0;
-  scroll-behavior: smooth;
-  font-family: "Exo Extra Bold", sans-serif;
-  color: #0048ba;
-  /* background: linear-gradient(
-    -45deg,
-    #ff0550,
-    violet,
-    yellow,
-    #05ff8a,
-    #00f700
-  ); */
-  background-size: 400% 400%;
-  /* animation: gradientbg 60s ease infinite; */
-}
-
 @keyframes gradientbg {
   0% {
     background-position: 0% 50%;
@@ -128,7 +351,7 @@ body {
   }
 }
 
-*/ .required-info {
+.required-info {
   color: #e71c23 !important;
   margin: 10px;
 }
@@ -374,7 +597,7 @@ body button:focus {
 
 .topnav {
   float: left;
-  width: 100vw;
+  background-color: white;
 }
 
 .navbar-icon {
@@ -397,6 +620,10 @@ body button:focus {
 
 .nav-effect {
   box-shadow: 0 2px 30px -2px rgba(0, 0, 0, 0.2);
+  align-self: center;
+  width: 1715px;
+  left: 10px;
+  right: 10px;
 }
 
 .float-right {
@@ -570,6 +797,8 @@ body button:focus {
   padding: 15px;
   overflow: hidden;
   background-color: #fff;
+  border-radius: 7.5px;
+  box-shadow: 0 2px 30px -2px rgba(0, 0, 0, 0.2);
 }
 
 .nav-form-title {
@@ -612,6 +841,7 @@ body button:focus {
 }
 
 .question-box {
+  box-shadow: 0 2px 30px -2px rgba(0, 0, 0, 0.2);
   background-color: #fff;
 }
 
@@ -756,12 +986,12 @@ body button:focus {
 }
 
 .question-options {
+  width: 2.73rem;
+  height: 4.75rem;
   background-color: #fff;
-  margin: 20px 0;
   position: fixed;
   bottom: 10%;
-  right: 0;
-  border: 1px solid #84878b;
+  right: 1%;
 }
 
 .form-option-icon {
@@ -1139,9 +1369,8 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 4rem;
   position: fixed;
   bottom: 50px;
-  right: 0%;
+  right: 1%;
   border-radius: 50%;
-  border: 1px solid #5f6368;
 }
 
 .response-title {
@@ -1187,6 +1416,14 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .form-template-label {
+  transition: all 0.5s;
+  font-family: "Google Sans";
+  margin: 10px;
+  display: block;
+}
+
+.form-template-label:hover {
+  transition: all 0.5s;
   font-family: "Google Sans";
   margin: 10px;
   display: block;

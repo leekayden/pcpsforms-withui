@@ -1,6 +1,6 @@
 {% extends 'index/layout.html' %}
 {% load static %}
-{% block title %}{{form.title}} | PCPSForms{% endblock %}
+{% block title %}{{form.title}}{% endblock %}
 {% block script %}
 <script src="{% static 'index/viewform.js' %}" defer></script>
 {% endblock %}
@@ -13,7 +13,7 @@
         <div class="margin-top-bottom box question-box">
             <div class="form-title-box">
                 <h1 class="form-title txtClr">{{form.title}}</h1>
-                <p class="required-info">* Required</p>
+                <p class="required-info">Fields marked with an * are required</p>
             </div>
             <div class="form-description txtClr">{{form.description|linebreaksbr}}</div>
         </div>
@@ -27,7 +27,10 @@
         <div class="margin-top-bottom box question-box">
             <h1 class="question-title txtClr">{{question.question}} {% if question.required %}<span class="require-star">*</span>{% endif %}</h1>
             {% if question.question_type == "short" %}
-                <input type="text" name="{{question.id}}" class="short-answer" placeholder = "Your answer" {% if question.required %} required {% endif %}>
+                <div class="form-group form-animate" data-id="{{question.id}}">
+                    <input type="text" class="input-animate" placeholder="{{question.question}}"/>
+                    <span class="input-onFocus"></span>
+                </div>
             {% elif question.question_type == "paragraph" %}
                 <textarea name="{{question.id}}" placeholder="Your answer" class="long-answer textarea-adjust" {% if question.required %} required {% endif %}></textarea>
             {% elif question.question_type == "multiple choice" %}
@@ -57,4 +60,5 @@
         </a>
     {% endif %}
 </div>
+
 {% endblock %}
