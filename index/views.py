@@ -47,12 +47,12 @@ def register(request):
         #check if the password is the same as confirmation
         if password != confirmation:
             return render(request, "index/register.html", {
-                "message": "Passwords must match."
+                "message": "Passwords must match!"
             })
         #Checks if the username is already in use
         if User.objects.filter(email = email).count() == 1:
             return render(request, "index/register.html", {
-                "message": "Email already taken."
+                "message": "Email already taken :("
             })
         try:
             user = User.objects.create_user(username = username, password = password, email = email)
@@ -61,7 +61,7 @@ def register(request):
             return HttpResponseRedirect(reverse('index'))
         except IntegrityError:
             return render(request, "index/register.html", {
-                "message": "Username already taken"
+                "message": "Username already taken :("
             })
     return render(request, "index/register.html")
 
@@ -814,6 +814,9 @@ def delete_responses(request, code):
                 i.delete()
             response.delete()
         return JsonResponse({"message": "Success"})
+
+def enterform(request):
+    pass
 
 # Error handler
 def FourZeroThree(request):

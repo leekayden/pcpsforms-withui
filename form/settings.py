@@ -19,7 +19,7 @@ import socket
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 
-ALLOWED_HOSTS = [s.getsockname()[0], '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [s.getsockname()[0], '127.0.0.1', 'localhost', '192.168.56.1', '*.vercel.app']
 s.close()
 
 
