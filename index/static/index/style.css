@@ -51,7 +51,6 @@
 .circle-plus {
   margin: auto;
   padding: 4em 0;
-  pointer-events: none;
 }
 
 /* basic styling */
@@ -306,7 +305,6 @@ footer .quick-links {
 }
 
 .label-float label {
-  pointer-events: none;
   position: absolute;
   top: calc(50% - 8px);
   left: 15px;

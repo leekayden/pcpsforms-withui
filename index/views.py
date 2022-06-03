@@ -816,7 +816,10 @@ def delete_responses(request, code):
         return JsonResponse({"message": "Success"})
 
 def enterform(request):
-    pass
+    if request.method == "POST":
+        formcode = request.POST["formcode"]
+        user = authenticate(request, formcode = formcode)
+    return render(request, "index/index.html")
 
 # Error handler
 def FourZeroThree(request):
